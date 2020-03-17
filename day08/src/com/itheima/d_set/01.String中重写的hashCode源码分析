@@ -1,0 +1,29 @@
+String s1 = "abc";   96354
+
+private final char value[];  ['a','b','c']
+
+public int hashCode() {
+    int h = hash;//h = hash = 0
+
+    if (h == 0 && value.length > 0) {
+        char val[] = value;//将上面的数组复制给了val[]
+
+        for (int i = 0; i < value.length; i++) {
+            h = 31 * h + val[i];
+        }
+        hash = h;
+    }
+    return h;
+}
+
+-----------------------------
+第一圈循环:
+   h = 31*0+'a'--->31*0+97=97
+第二圈循环:
+   h = 31*97+'b'-->31*97+98=3105
+第三圈循环:
+   h = 31*3105+'c'-->31*3105+99=96354
+
+31-->质数-->尽可能的减低哈希冲突(哈希碰撞)情况的出现
+
+

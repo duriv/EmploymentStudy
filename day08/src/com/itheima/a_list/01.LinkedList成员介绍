@@ -1,0 +1,48 @@
+1.LinkedList成员介绍
+public class LinkedList<E>{
+   transient Node<E> first;->第一个节点
+   transient Node<E> last;->最后一个节点
+
+   private static class Node<E> {
+       E item;//存储的元素
+       Node<E> next;//下一个节点对象->地址值->一个节点的后指针域
+       Node<E> prev;//上一个节点对象->地址值->一个节点的前指针域
+       Node(Node<E> prev, E element, Node<E> next) {
+           this.item = element;
+           this.next = next;
+           this.prev = prev;
+       }
+   }
+}
+
+总结:从LinkedList中的Node对象来看,是一个双链表,一个对象,记录着上一个节点地址,也记录这下一个节点地址
+
+---------------------------------------------------
+LinkedList调用get方法源码:
+
+    public E get(int index) {
+        checkElementIndex(index);
+        return node(index).item;
+    }
+
+
+
+    Node<E> node(int index) {
+            // assert isElementIndex(index);
+            /*
+               size>>1:位移->右移->除以2
+            */
+            if (index < (size >> 1)) {    //二分查找
+                Node<E> x = first;
+                for (int i = 0; i < index; i++)
+                    x = x.next;
+                return x;
+            } else {
+                Node<E> x = last;
+                for (int i = size - 1; i > index; i--)
+                    x = x.prev;
+                return x;
+            }
+        }
+
+

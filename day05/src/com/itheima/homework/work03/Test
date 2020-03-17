@@ -1,0 +1,15 @@
+三 问答题【包装类】
+3.1 请写出八种基本类型和它们对应的包装类的名字
+    基本类型        包装类
+        byte                Byte
+        short               Short
+        int                     Integer
+        float                   Float
+        long                    Long
+        double              Double
+        char                    Character
+        boolean             Booblean
+
+3.2 请问什么是自动装箱和自动拆箱？
+Java中基础数据类型与它们的包装类进行运算时，编译器会自动帮我们进行转换，
+转换过程对程序员是透明的，这就是装箱和拆箱，装箱和拆箱可以让我们的代码更简洁易懂

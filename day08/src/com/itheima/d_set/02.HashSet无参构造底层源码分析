@@ -1,0 +1,9 @@
+HashSet<String> hashSet = new HashSet<>();
+public HashSet() {
+    map = new HashMap<>();
+}
+
+static final float DEFAULT_LOAD_FACTOR = 0.75f;->表示存储到达百分之75,自动扩容
+public HashMap() {
+    this.loadFactor = DEFAULT_LOAD_FACTOR; //DEFAULT_LOAD_FACTOR->默认加载因子
+}

@@ -1,0 +1,45 @@
+Iterator<String> iterator = list.iterator();
+    /* 3.循环迭代元素,在迭代的过程中,判断获取出来的元素是不是"大官人"
+     如果是,调用add,往集合中添加"卢俊义"*/
+    while(iterator.hasNext()){
+        String element = iterator.next();
+        if (element.equals("大官人")){
+            list.add("卢俊义");
+        }
+    }
+    =======================================================
+     modCount:实际操作元素的次数
+     expectedModCount:预期操作的次数
+
+     public Iterator<E> iterator() {
+         return new Itr();
+     }
+
+     private class Itr implements Iterator<E> {
+         int expectedModCount = modCount;
+
+     }
+
+       public E next() {
+         checkForComodification();
+     }
+
+       final void checkForComodification() {
+           if (modCount != expectedModCount)
+               throw new ConcurrentModificationException();
+       }
+
+       ==============调用add方法的源码=============
+
+       public boolean add(E e) {
+           ensureCapacityInternal(size + 1);  // Increments modCount!!
+       }
+
+       private void ensureCapacityInternal(int minCapacity) {
+           ensureExplicitCapacity(calculateCapacity(elementData, minCapacity));
+       }
+
+       private void ensureExplicitCapacity(int minCapacity) {
+           modCount++;
+       }
+

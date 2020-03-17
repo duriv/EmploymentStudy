@@ -1,0 +1,46 @@
+三 问答题【内部类】
+3.1 请问有几种形式的内部类？
+答：静态内部类，成员内部类，方法内部类，匿名内部类
+静态内部类是定义在另一个类里面用static修饰class的类
+成员内部类是没有用static修饰并定义在外部类类体重的类
+方法内部类是定义在一个方法里面的类
+匿名内部类是一种没有构造器的类（实质是继承类或实现接口的子类匿名对象）
+3.2 请问内部类会被编译成class文件吗？
+答：内部类仍是一个独立的类，在编译之后内部类会被编译成独立的.class文件
+3.3 请问下面横线处分别填写什么代码，才能实现打印：
+	class Outside{
+		private int a = 100;
+		class Inside{
+			private int a = 200;
+			public void show(){
+				int a = 300;
+				System.out.println(___________);//100
+				System.out.println(___________);//200
+				Ssytem.out.println(___________);//300
+			}
+		}
+	}
+3.4 请问下面横线处分别填写什么代码，才能实现打印：
+	class Outside{
+		public void show(){
+			__________
+			class Inside{
+				public void show(){
+					System.out.println(“a = “ + a);//10
+				}
+			}
+		}
+	}
+3.5 请按要求填写代码：
+	interface Animal{
+		public void show();
+	}
+	class Test{
+		public static void main(String[] args){
+			fun(________________________);//请用子类的形式调用
+			fun(________________________);//请用匿名内部类的形式调用
+		}
+		public static void fun(Animal a ){
+			a.show();
+		}
+	}

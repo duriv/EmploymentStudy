@@ -1,0 +1,36 @@
+HashSet<String> hashSet = new HashSet<>();
+hashSet.add("abc");//96354
+
+----------------------------------
+public boolean add(E e) {//abc
+    return map.put(e, PRESENT)==null;//e = abc
+}
+
+public V put(K key, V value) {//key=abc
+    return putVal(hash(key), key, value, false, true);//96354
+}
+
+
+final V putVal(int hash->96354, K key, V value, boolean onlyIfAbsent,
+                   boolean evict) {
+        Node<K,V>[] tab; Node<K,V> p; int n, i;
+        if ((tab = table) == null || (n = tab.length) == 0)
+            n = (tab = resize()).length;//扩容，初始化为16，2倍  n = 16
+        if ((p = tab[i = (n - 1) & hash]) == null)
+            /*
+               将元素存放到数组对应的索引上,i代表元素存到数组中的位置
+               i = (n - 1) & hash->96354
+            */
+            tab[i] = newNode(hash, key, value, null);
+
+}
+i = (n - 1) & hash->转成二进制计算  15&96354
+
+     0000-0000 0000-0000 0000-0000 0000-1111
+                                              &    0&0=0  0&1=0 1&1=1
+     ‭0000-0000 0000-0001 0111-1000 0110-0010‬
+---------------------------------------------------------
+                                          10转成十进制2
+
+
+

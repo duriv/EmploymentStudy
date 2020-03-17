@@ -1,0 +1,37 @@
+HashSet<String> set = new HashSet<>(10, 0.1F);
+  10:哈希表中数组初始容量
+  0.1F:初始化的加载因子
+
+public HashSet(int initialCapacity, float loadFactor) {
+    map = new HashMap<>(initialCapacity->10, loadFactor->0.1);
+}
+
+ static final int MAXIMUM_CAPACITY = 1 << 30;//1073741824
+
+ public HashMap(int initialCapacity->10, float loadFactor->0.1) {
+    if (initialCapacity < 0)
+        throw new IllegalArgumentException("Illegal initial capacity: " +
+                                           initialCapacity);
+    if (initialCapacity > MAXIMUM_CAPACITY)
+        initialCapacity = MAXIMUM_CAPACITY;
+    if (loadFactor <= 0 || Float.isNaN(loadFactor))
+        throw new IllegalArgumentException("Illegal load factor: " +
+                                           loadFactor);
+    this.loadFactor = loadFactor;
+    this.threshold = tableSizeFor(initialCapacity-10);
+    }
+
+    static final int tableSizeFor(int cap->10) {
+         int n = cap - 1;
+         n |= n >>> 1;
+         n |= n >>> 2;
+         n |= n >>> 4;
+         n |= n >>> 8;
+         n |= n >>> 16;
+         return (n < 0) ? 1 : (n >= MAXIMUM_CAPACITY) ? MAXIMUM_CAPACITY : n + 1;
+     }
+
+-----------------------------------------------
+如果不指定HashSet底层的哈希表中的数组容量的话,默认是16,但是指定了,会通过计算,返回给一个计算后的容量
+
+ 32  16    8   4   2   1

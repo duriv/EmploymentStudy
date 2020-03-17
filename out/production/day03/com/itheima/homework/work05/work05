@@ -1,0 +1,18 @@
+五 问答题【访问权限修饰符】
+5.1 请按从大到小的顺序写出四种访问权限修饰符。
+答：public,proteated,默认,private
+5.2 请问修饰“类”可以使用什么权限修饰符？
+答：public：修饰类
+protected:修饰内部类
+default:默认修饰类
+private:修饰内部类，该类为内部类
+5.3 请问修饰“成员属性”可以使用什么权限修饰符？
+答：public
+default
+proteated
+private：被private修饰的成员，只能在本类中使用，在其它类中不能被调用
+protected：只能被类本身的方法及子类访问，即使子类在不同的包中也可以访问
+5.4 请问构造方法可以使用什么权限修饰符？
+private
+default
+public：被public修饰的成员，可以在任何一个类中被调用，不管同包或不同包，是权限最大的一个修饰符。
